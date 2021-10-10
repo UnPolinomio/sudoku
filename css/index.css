@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+}
+
+#counter_container {
+    font-size: 2em;
+    text-align: center;
+    margin: 1.5em 0;
+    user-select: none;
+}
+
+#counter {
+    border: 2px solid orangered;
+    border-radius: 0.3em;
+    padding: 0.3em 1.5em;
+    color: orangered;
+}
+
+#app {
+    padding: 0 3em;
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    position: relative;
+    box-sizing: content-box;
+    border: 2px solid #000;
+    width: 300px;
+    height: 300px;
+}
+
+#container > * {
+    position: absolute;
+
+}
+
+#numpad {
+    border: 2px solid #888;
+    border-radius: 0.4em;
+    padding: 0.4em;
+    user-select: none;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 0.2em;
+    font-size: 2em;
+    width: 250px;
+    height: 300px;
+}
+
+#numpad button {
+    border: 2px solid #34D399;
+    color: #059669;
+    font-weight: bold;
+    background-color: #eee;
+    border-radius: 0.3em;
+    font-size: 1em;
+    cursor: pointer;
+}
+#numpad button:active {
+    transform: scale(0.9);
+    transition: transform 0.05s;
+}
+
+#numpad .sudokuButton-clear,
+#numpad .sudokuButton-restart {
+    grid-column-start: span 3;
+    font-size: 0.8em;
+}
