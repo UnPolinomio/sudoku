@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoku</title>
     <link rel="stylesheet" href="./css/index.css">
+    <script src='./js/game.js' defer></script>
+    <script src="./js/index.js" defer></script>
 </head>
 <body>
-    <p id='counter_container'><span id="counter"></span></p>
-    <div id="app">
-        <div id="container"></div>
-        <div id="numpad"></div>
-    </div>
-
-    <script src="./js/index.js" defer></script>
+    <form class='form'>
+        <p class='form__p'>Ingresa el código del juego</p>
+        <input type="text" class='form__code' placeholder='Código'>
+        <button type="submit" class='form__submit'>Entrar</button>
+    </form>
 </body>
 </html>

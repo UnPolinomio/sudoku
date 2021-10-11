@@ -6,6 +6,50 @@
 
 body {
     font-size: 16px;
+    font-family: sans-serif;
+    min-height: 100vh;
+}
+
+.form {
+    width: 95vw;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5em 1.5em;
+    background-color: #eee;
+    border-radius: 1em;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.form__p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+.form__code {
+    font-size: 1.1em;
+    border-radius: 0.25em;
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    border: 2px solid black;
+    outline: none;
+}
+.form__code:focus {
+    border-color: steelblue;
+}
+.form__submit {
+    font-size: 1em;
+    border-radius: 0.25em;
+    padding: 0.5em;
+    font-weight: bold;
+    border: 2px solid darkgreen;
+    color: darkgreen;
+    transition: transform 0.1s;
+}
+.form__submit:active {
+    transform: scale(0.95);
 }
 
 #counter_container {
