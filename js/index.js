@@ -1,3 +1,5 @@
+import { SudokuGame } from './sudoku.js'
+
 const $form__code = document.querySelector('.form__code')
 const START_MSG = '🎯¿Estás seguro que quieres comenzar ya?'
 const TEMPLATE =`

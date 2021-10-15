@@ -1,7 +1,7 @@
 const RESTART_MSG = '👾 ¿Estás seguro de reiniciar el juego? Perderás todo el progreso.'
 const WIN_MSG = '🎉 ¡Terminaste! ¡Felicidades! 🎉'
 
-class SudokuGame {
+export class SudokuGame {
     constructor({ container, numpad, counter, size, board, win_msg }) {
         this.container = container
         this.numpad = numpad
