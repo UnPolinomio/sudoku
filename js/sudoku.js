@@ -137,8 +137,13 @@ export class SudokuGame {
         return true
     }
     addEventListeners() {
-        this.userCtx.canvas.addEventListener('click', (e) => {
-            const { offsetX, offsetY } = e
+        const canvas = this.userCtx.canvas
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect()
+            const scale = this.size / rect.width
+            const offsetX = (e.clientX - rect.left) * scale
+            const offsetY = (e.clientY - rect.top) * scale
+
             const x = Math.floor(offsetX / this.spacing)
             const y = Math.floor(offsetY / this.spacing)
 
@@ -152,8 +157,13 @@ export class SudokuGame {
 
             this.drawSelected()
         })
+
         document.body.addEventListener('click', (e) => {
-            if (container.contains(e.target) || numpad.contains(e.target)) { return }
+            if (
+                this.container.contains(e.target) ||
+                this.numpad.contains(e.target)
+            ) { return }
+
             this.selected.x = null
             this.selected.y = null
             this.drawSelected()
@@ -186,7 +196,7 @@ export class SudokuGame {
         if (clear) {
             ctx.clearRect(x * this.spacing, y * this.spacing, this.spacing, this.spacing)
         }
-        ctx.font = 'bold 25px sans-serif'
+        ctx.font = `bold ${this.size * 25 / 400}px sans-serif`
         ctx.fillStyle = color
         ctx.textAlign = 'center'
         ctx.textBaseline = 'middle'

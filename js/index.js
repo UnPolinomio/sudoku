@@ -3,10 +3,12 @@ import { SudokuGame } from './sudoku.js'
 const $form__code = document.querySelector('.form__code')
 const START_MSG = '🎯¿Estás seguro que quieres comenzar ya?'
 const TEMPLATE =`
-    <p id='counter_container'><span id="counter"></span></p>
-    <div id="app">
-        <div id="container"></div>
-        <div id="numpad"></div>
+    <p class='counter_container'><span class="counter"></span></p>
+    <div class="app">
+        <div class='wrapper'>
+            <div class="container"></div>
+        </div>
+        <div class="numpad"></div>
     </div>
 `
 
@@ -78,10 +80,10 @@ document.querySelector('.form').addEventListener('submit', (e) => {
 
         document.body.innerHTML = TEMPLATE
         new SudokuGame({
-            container: document.querySelector('#container'),
-            numpad: document.querySelector('#numpad'),
-            counter: document.querySelector('#counter'),
-            size: 300,
+            container: document.querySelector('.container'),
+            numpad: document.querySelector('.numpad'),
+            counter: document.querySelector('.counter'),
+            size: 1280,
             board: board.sudoku,
             win_msg: `Código del juego: ${value}`
         })
