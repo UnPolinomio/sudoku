@@ -218,38 +218,45 @@ export class SudokuGame {
             }
         }
     }
+    drawLine({ ctx, horizontal, pos }) {
+        ctx.beginPath()
+        if (horizontal) {
+            ctx.moveTo(0, pos)
+            ctx.lineTo(this.size, pos)
+        } else {
+            ctx.moveTo(pos, 0)
+            ctx.lineTo(pos, this.size)
+        }
+        ctx.stroke()
+    }
     drawGrid() {
         const ctx = this.ctx
         ctx.strokeStyle = '#000'
+        const BOLD_LINE_WIDTH = this.size * 2.5 / 300
+        const BOLD_COLOR = '#000'
+        const NORMAL_LINE_WIDTH = this.size * 1.5 / 300
+        const NORMAL_COLOR = '#888'
     
-        // Vertical lines
+        // Normal lines
+        ctx.lineWidth = NORMAL_LINE_WIDTH
+        ctx.strokeStyle = NORMAL_COLOR
         for (let i = 1; i <= 8; i++) {
-            if (i % 3 === 0) {
-                ctx.lineWidth = 3
-            } else {
-                ctx.lineWidth = 1.5
-            }
-            const x = this.spacing * i
+            if (i % 3 === 0) { continue }
+            const pos = this.spacing * i
     
-            ctx.beginPath()
-                ctx.moveTo(x, 0)
-                ctx.lineTo(x, this.size)
-            ctx.stroke()
+            this.drawLine({ ctx, horizontal: true, pos })
+            this.drawLine({ ctx, horizontal: false, pos })
         }
     
-        // Horizontal lines
+        // Bold lines
+        ctx.lineWidth = BOLD_LINE_WIDTH
+        ctx.strokeStyle = BOLD_COLOR
         for (let i = 1; i <= 8; i++) {
-            if (i % 3 === 0) {
-                ctx.lineWidth = 3
-            } else {
-                ctx.lineWidth = 1.5
-            }
-            const y = this.spacing * i
+            if (i % 3 !== 0) { continue }
+            const pos = this.spacing * i
     
-            ctx.beginPath()
-                ctx.moveTo(0, y)
-                ctx.lineTo(this.size, y)
-            ctx.stroke()
+            this.drawLine({ ctx, horizontal: true, pos })
+            this.drawLine({ ctx, horizontal: false, pos })
         }
     }
 }
