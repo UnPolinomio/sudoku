@@ -78,6 +78,10 @@ document.querySelector('.form').addEventListener('submit', (e) => {
     if (board) {
         if (!confirm(START_MSG)) { return }
 
+        const date = new Date().toISOString()
+        const id = Math.random().toString(36).substr(2, 9)
+        const msg = `Código del juego: ${value} \n\n Identificador: ${id} \n\n ${date}`
+        
         document.body.innerHTML = TEMPLATE
         new SudokuGame({
             container: document.querySelector('.container'),
@@ -85,7 +89,7 @@ document.querySelector('.form').addEventListener('submit', (e) => {
             counter: document.querySelector('.counter'),
             size: 1280,
             board: board.sudoku,
-            win_msg: `Código del juego: ${value}`
+            win_msg: msg
         })
     } else {
         alert('Código inválido.')
