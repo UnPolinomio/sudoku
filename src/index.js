@@ -1,3 +1,4 @@
+import './index.css'
 import { SudokuGame } from './sudoku.js'
 
 const $form__code = document.querySelector('.form__code')
