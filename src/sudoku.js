@@ -196,7 +196,7 @@ export class SudokuGame {
         if (clear) {
             ctx.clearRect(x * this.spacing, y * this.spacing, this.spacing, this.spacing)
         }
-        ctx.font = `bold ${this.size * 25 / 400}px sans-serif`
+        ctx.font = `bold ${this.size * 25 / 400}px Roboto, Inter, Arial, sans-serif`
         ctx.fillStyle = color
         ctx.textAlign = 'center'
         ctx.textBaseline = 'middle'
